@@ -1,0 +1,9 @@
+
+**********Github
+1- Ne pas utiliser les abréviations dans les message de commit
+2- Ecrire un commit concis et claire, assez détaillé
+
+**********php
+
+
+**********html
