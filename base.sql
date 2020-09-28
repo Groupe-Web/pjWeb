@@ -2,20 +2,9 @@
 --         Script MySQL.
 -- ------------------------------------------------------------
 
-
-<<<<<<< HEAD
-DROP TABLE [IF EXISTS] utilisateur;
-DROP TABLE [IF EXISTS] salle;
-DROP TABLE [IF EXISTS] creneau;
-
-#------------------------------------------------------------
-# Table: utilisateur
-#------------------------------------------------------------
-=======
 -- ------------------------------------------------------------
 --  Table: utilisateur
 -- ------------------------------------------------------------
->>>>>>> 3bba7faf09cceb7fe2cf99ee1ec58aefc51e14dc
 
 CREATE TABLE utilisateur(
         id         Int  Auto_increment  NOT NULL ,
