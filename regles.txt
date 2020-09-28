@@ -7,3 +7,10 @@
 
 
 **********html
+
+
+
+********* MySQL
+lorsque la base a été modifié, il faut la remplacer dans  le dossier du projet fin que
+tous puissons avoir les meme données.
+Bien vouloir notifieer a chaque fois que la base a ete modifié

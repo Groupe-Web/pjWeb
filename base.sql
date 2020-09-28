@@ -35,8 +35,8 @@ CREATE TABLE salle(
 
 CREATE TABLE creneau(
         id        Int  Auto_increment  NOT NULL ,
-        heure_deb TimeStamp NOT NULL ,
-        heure_fin TimeStamp NOT NULL
+        heure_deb Time NOT NULL ,
+        heure_fin Time  NOT NULL
 	,CONSTRAINT creneau_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
