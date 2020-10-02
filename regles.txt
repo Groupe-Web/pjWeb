@@ -1,3 +1,4 @@
+<<<<<<< current
 
 **********Github
 1- Ne pas utiliser les abréviations dans les message de commit
@@ -11,11 +12,25 @@
 
 
 
-********* MySQL
-lorsque la base a été modifié, il faut la remplacer dans  le dossier du projet fin que
-tous puissons avoir les meme données.
-Bien vouloir notifieer a chaque fois que la base a ete modifié
 *********SQL
 1- Notifier Zidane si besoin de changer un fichier sql.
 2- Ecrire un message de commit concis et claire, assez détaillé.
 3- Concernant les différentes
+=======
+
+**********Github
+1- Ne pas utiliser les abréviations dans les message de commit
+2- Ecrire un message de commit concis et claire, assez détaillé
+
+**********php
+
+
+**********html
+
+
+
+*********SQL
+1- Notifier Zidane si besoin de changer un fichier sql.
+2- Ecrire un message de commit concis et claire, assez détaillé.
+3- Concernant les différentes
+>>>>>>> before discard
