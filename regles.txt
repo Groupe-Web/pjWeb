@@ -1,14 +1,10 @@
 
 **********Github
-1- Ne pas utiliser les abréviations dans les message de commit
-2- Ecrire un commit concis et claire, assez détaillé
-3- Ecrire un message de commit concis et claire, assez détaillé
-
-**********Github
-1- Ne pas utiliser les abréviations dans les message de commit
-2- Ecrire un message de commit concis et claire, assez détaillé
+1- Ne pas utiliser les abréviations dans les message de commit.
+2- Ecrire un message de commit concis et claire, assez détaillé.
+3- Commit, pull, push Chaque jour minuit.
 
 *********SQL
 1- Notifier Zidane si besoin de changer un fichier sql.
 2- Ecrire un message de commit concis et claire, assez détaillé.
-3- Concernant les différentes
+3- Concernant les différentes.
