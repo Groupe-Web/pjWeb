@@ -1,3 +1,5 @@
+<?php  session_start();  // ouverture d'une session?>
+
 <html>
   <head>
     <title> Connexion </title>
@@ -51,49 +53,7 @@
 
   <?php
       include("connect.php"); //connexion à la bd
-
-
-      try{
-
-              //recupération des champs html en php
-              if(isset($_POST['email']) && isset($_POST['password'])){
-
-                $email=$_POST['email'];
-                $pass=$_POST['password'];
-
-                //
-                //requette de selection des utilisateurs
-                $sth = $conn->prepare('SELECT email,motdepasse FROM utilisateur
-                                    WHERE email=:email AND motdepasse=:pass');
-
-              //passage par valeur
-                $sth->bindvalue(':email',$email);
-                $sth->bindvalue(':pass',$pass);
-
-                $sth->execute();//execution de la requette
-                $count=0; //compteur de resultat ,si 0 alors pas de resultats
-
-                foreach ($sth as $row) {
-                  $count++; //incrementation a chaque ligne trouvée
-                }
-
-                if($count==0){
-                  //pas de ligne trouvée
-                  echo" <script language='javascript'>alert('cet utilisateur non present dans la base');</script>";
-                  unset($email);
-                  unset($pass);
-                }
-                else{
-                //  echo " there are ".$count." arrays";
-                      header('Location: reservation.php');
-                }
-              }
-
-          }
-      catch(PDOException $e){
-
-          echo " <br> erreur dans la requette ".$e->getMessage();
-      }
+      include("connexion_controleur.php");//page du code back-end
 
    ?>
 
