@@ -3,8 +3,8 @@
 1- Ne pas utiliser les abréviations dans les message de commit.
 2- Ecrire un message de commit concis et claire, assez détaillé.
 3- Commit, pull, push Chaque jour minuit.
+4- Toujours lire le fichier 'regles.txt' et 'rapport.txt' s'il y a modification.
 
 *********SQL
 1- Notifier Zidane si besoin de changer un fichier sql.
 2- Ecrire un message de commit concis et claire, assez détaillé.
-3- Concernant les différentes.
