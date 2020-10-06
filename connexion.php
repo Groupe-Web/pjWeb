@@ -4,33 +4,30 @@
   <head>
     <title> Connexion </title>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="connexion_style.css">
+    <link rel="icon" href="images/img5.ico" /> <!-- pour mettre une icone -->
     </title>
   </head>
 
   <body>
 
     <div class="container">
-          <div class="row" id="header">
-              <div class="col-xs-12">
-              <img src='images/logo3il.png'>
-              </div>
-          </div>
 
           <div class="row" id='content' >
                 <div class="col-md-4" id="content_left">
 
                 </div>
 
-                <div class="col-md-4">
-                    <form name='form1' method='POST' action=''>
-                          <center> Connectez vous </center>
-                         <input type='text' name='email' placeholder='email' required ><br>
-                          <input type='password' name="password" placeholder="password" required >
+                <div class="col-md-4" id="center">
+                    <form name='form1' method='POST' action='' class="form-group">
+                          <center><span id="connexion">Connexion</span>
+                          <br><br>
+                         <input type='text' name='email' class="form-control" placeholder='email' required ><br>
+                          <input type='password' class="form-control" name="password" placeholder="password" required >
                           <br>
                           <br>
-                          <button type='submit' name='envoyer'>Valider</button>
-                          <button type='reset' name='annuler'> Annuler </button>
+                          <button type='submit'class="bouton" name='envoyer'>Valider</button></center>
+
 
                     </form>
                 </div>
