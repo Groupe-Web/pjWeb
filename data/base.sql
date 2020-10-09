@@ -46,7 +46,7 @@ CREATE TABLE creneau(
 -- ------------------------------------------------------------
 
 CREATE TABLE reserver(
-        id         Int NOT NULL ,
+        id         Int Auto_increment NOT NULL ,
         numero     Int NOT NULL ,
         date_reservation Date NOT NULL,
         id_creneau Int NOT NULL,
