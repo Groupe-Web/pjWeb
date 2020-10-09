@@ -1,10 +1,10 @@
 -- ------------------------------------------------------------
 --         Script MySQL.
 -- ------------------------------------------------------------
+DROP TABLE IF EXISTS reserver;
 DROP TABLE IF EXISTS utilisateur;
 DROP TABLE IF EXISTS salle;
 DROP TABLE IF EXISTS creneau;
-DROP TABLE IF EXISTS reserver;
 -- ------------------------------------------------------------
 --  Table: utilisateur
 -- ------------------------------------------------------------
