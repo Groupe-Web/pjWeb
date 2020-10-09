@@ -19,6 +19,7 @@
 #center{
      background:#125976/**#1B85B0/**#E1E8E8 **/;
      margin :left;
+     border-radius: 15px 15px 18px;
 }
 
 input::placeholder{
