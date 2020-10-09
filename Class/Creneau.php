@@ -2,7 +2,7 @@
 
 class Creneau
 {
-  private $_id;
-  private $_date_deb;
-  private $_date_fin;
+  private $id;
+  private $date_deb;
+  private $date_fin;
 }

@@ -3,48 +3,57 @@
 class Reserver
 {
   private $id;
-  private $numero;
+  private $dateReservation;
   private $idCreneau;
   private $idUtilisateur;
-  private $numeroSalle;;
+  private $idSalle;
 }
 
+//
+//  Getters
+//
 public function getId(){
   return $this->id;
 }
 
-public function getNumero(){
-  return $this->id;
+public function getDateRéservation(){
+  return $this->dateReservation;
 }
 
-public function get(){
-  return $this->id;
+public function getIdCreneau(){
+  return $this->idCreneau;
 }
 
-public function getId(){
-  return $this->id;
+public function getIdUtilisateur(){
+  return $this->idUtilisateur;
 }
 
-public function getId(){
-  return $this->id;
+public function getIdSalle(){
+  return $this->idSalle;
 }
 
-public function getId(){
-  return $this->id;
+//
+//  Setters
+//
+public function setId($id){
+  if(is_int($id))
+    $this->id = $id;
+  else
+    $this->id = ERR_INT; //si $id n'est pas un entier, il vaut -1
 }
 
-public function getId(){
-  return $this->id;
+public function setDateReservation($dateReservation){
+  $this->dateReservation = $dateReservation;
 }
 
-public function getId(){
-  return $this->id;
+public function setIdCreneau($dateReservation){
+  $this->dateReservation = $dateReservation;
 }
 
-public function getId(){
-  return $this->id;
+public function setIdUtilisateur($idUtilisateur){
+  $this->idUtilisateur = $idUtilisateur;
 }
 
-public function getId(){
-  return $this->id;
+public function setIdSalle($idSalle){
+  $this->idSalle = $idSalle;
 }
