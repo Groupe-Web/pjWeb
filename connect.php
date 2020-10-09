@@ -16,7 +16,7 @@
       }
       catch (Exception $e) {
 
-        echo " erreur lors de la connection a la BD";
+        echo "erreur lors de la connection a la BD";
 
       }
 
