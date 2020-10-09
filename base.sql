@@ -4,6 +4,7 @@
 DROP TABLE IF EXISTS utilisateur;
 DROP TABLE IF EXISTS salle;
 DROP TABLE IF EXISTS creneau;
+DROP TABLE IF EXISTS reserver;
 -- ------------------------------------------------------------
 --  Table: utilisateur
 -- ------------------------------------------------------------
@@ -38,6 +39,7 @@ CREATE TABLE creneau(
         id        Int  Auto_increment  NOT NULL ,
         heure_deb Time NOT NULL ,
         heure_fin Time  NOT NULL
+        heure_fin Time NOT NULL
 	,CONSTRAINT creneau_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
@@ -49,6 +51,7 @@ CREATE TABLE creneau(
 CREATE TABLE reserver(
         id         Int NOT NULL ,
         numero     Int NOT NULL ,
+        date_reservation Date NOT NULL,
         id_creneau Int NOT NULL
 	,CONSTRAINT reserver_PK PRIMARY KEY (id,numero,id_creneau)
 
