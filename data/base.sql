@@ -15,7 +15,7 @@ CREATE TABLE utilisateur(
         prenom     Varchar (50) NOT NULL ,
         email      Varchar (50) NOT NULL ,
         motdepasse Varchar (50) NOT NULL ,
-        droit      Varchar (50) NOT NULL COMMENT "droits: admin/etudiant"
+        droit      Varchar (50) NOT NULL COMMENT "droits: admin/etudiant",
         motdepasseHAshed VARCHAR(100) NULL DEFAULT NULL
 	,CONSTRAINT utilisateur_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
