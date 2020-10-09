@@ -52,7 +52,7 @@ CREATE TABLE reserver(
         id_creneau Int NOT NULL,
         id_salle Int NOT NULL,
         id_utilisateur Int NOT NULL
-	,CONSTRAINT reserver_PK PRIMARY KEY (id,numero,id_creneau)
+	,CONSTRAINT id PRIMARY KEY (id,numero,id_creneau)
 
 	,CONSTRAINT id_utilisateur FOREIGN KEY (id) REFERENCES utilisateur(id)
 	,CONSTRAINT numero_salle FOREIGN KEY (numero) REFERENCES salle(numero)
