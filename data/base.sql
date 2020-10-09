@@ -16,9 +16,9 @@ CREATE TABLE utilisateur(
         email      Varchar (50) NOT NULL ,
         motdepasse Varchar (50) NOT NULL ,
         droit      Varchar (50) NOT NULL COMMENT "droits: admin/etudiant"
+        motdepasseHAshed VARCHAR(100) NULL DEFAULT NULL
 	,CONSTRAINT utilisateur_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
-
 
 -- ------------------------------------------------------------
 --  Table: salle
@@ -30,7 +30,6 @@ CREATE TABLE salle(
 	,CONSTRAINT salle_PK PRIMARY KEY (numero)
 )ENGINE=InnoDB;
 
-
 -- ------------------------------------------------------------
 --  Table: creneau
 -- ------------------------------------------------------------
@@ -41,7 +40,6 @@ CREATE TABLE creneau(
         heure_fin Time  NOT NULL
 	,CONSTRAINT creneau_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
-
 
 -- ------------------------------------------------------------
 --  Table: reserver
