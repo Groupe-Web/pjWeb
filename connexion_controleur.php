@@ -32,7 +32,7 @@
 
                 if($count==0){
                   //pas de ligne trouvée alors on  déclenche un pop-up js
-                  echo" <script language='javascript'>alert('cet utilisateur non present dans la base');</script>";
+                  echo" <script language='javascript'>alert('cet utilisateur est non present dans la base');</script>";
 
                   //destruction des variables pour eviter de reload
                   unset($email);

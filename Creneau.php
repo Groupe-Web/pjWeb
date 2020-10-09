@@ -1,6 +1,6 @@
 <?php
 
-class ModelCreneau
+class Creneau
 {
   private $_id;
   private $_date_deb;
