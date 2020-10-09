@@ -49,10 +49,12 @@ CREATE TABLE reserver(
         id         Int NOT NULL ,
         numero     Int NOT NULL ,
         date_reservation Date NOT NULL,
-        id_creneau Int NOT NULL
+        id_creneau Int NOT NULL,
+        id_salle Int NOT NULL,
+        id_utilisateur Int NOT NULL
 	,CONSTRAINT reserver_PK PRIMARY KEY (id,numero,id_creneau)
 
-	,CONSTRAINT reserver_utilisateur_FK FOREIGN KEY (id) REFERENCES utilisateur(id)
-	,CONSTRAINT reserver_salle0_FK FOREIGN KEY (numero) REFERENCES salle(numero)
-	,CONSTRAINT reserver_creneau1_FK FOREIGN KEY (id_creneau) REFERENCES creneau(id)
+	,CONSTRAINT id_utilisateur FOREIGN KEY (id) REFERENCES utilisateur(id)
+	,CONSTRAINT numero_salle FOREIGN KEY (numero) REFERENCES salle(numero)
+	,CONSTRAINT id_creneau FOREIGN KEY (id_creneau) REFERENCES creneau(id)
 )ENGINE=InnoDB;
