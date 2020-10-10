@@ -46,12 +46,11 @@ class Utilisateur
     if(is_int($id))
       $this->id = $id;
     else
-    $this->id = ERREUR_ENTIER; //si $id n'est pas un entier, il vaut -1
+      $this->id = ERR_INT; //si $id n'est pas un entier, il vaut -1
   }
 
   public function setNom($nom){
-      $this->nom = $nom;
-    }
+    $this->nom = $nom;
   }
 
   public function setPrenom($prenom){
