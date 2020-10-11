@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `motdepasse`, `droit`, `motdepasseHAshed`) VALUES
-(1, 'Djihoua', 'Edy Wise', 'djihouae@3il.fr', 'silenced', 'etudiant', NULL),
-(3, 'Zidane', 'Zizou', 'z@3il.fr', 'silenced', 'admin', NULL),
-(4, 'Mouaffo', 'Zidane', 'zerd@3il.fr', 'silenced', 'admin', NULL);
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `motdepasse`,  `droit`) VALUES
+(1, 'Djihoua', 'Edy Wise', 'djihouae@3il.fr', 'silenced', 'etudiant'),
+(3, 'Zidane', 'Zizou', 'z@3il.fr', 'silenced', 'admin'),
+(4, 'Mouaffo', 'Zidane', 'zerd@3il.fr', 'silenced', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
