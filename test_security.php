@@ -21,10 +21,11 @@
           }
           else{
             echo "<br>";
-              echo password_hash("rasmuslerdorf", PASSWORD_DEFAULT);
+              echo password_hash($_POST['txtpass'], PASSWORD_DEFAULT);
+              echo "<br> ".$_POST['txtpass'];
           }
       }
-
+      //http://localhost/github/
      ?>
 
 

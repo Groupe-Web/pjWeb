@@ -16,18 +16,19 @@
 
                 //
                 //requette de selection des utilisateurs
-                $sth = $conn->prepare('SELECT email,motdepasse FROM utilisateur
-                                    WHERE email=:email AND motdepasse=:pass');
+                $sth = $conn->prepare('SELECT * FROM utilisateur');
 
-              //passage par valeur
-                $sth->bindvalue(':email',$email);
-                $sth->bindvalue(':pass',$pass);
 
                 $sth->execute();//execution de la requette
                 $count=0; //compteur de resultat ,si 0 alors pas de resultats
 
                 foreach ($sth as $row) {
-                  $count++; //incrementation a chaque ligne trouvée
+
+                  if(password_verify($pass,$row['motdepasseHAshed'])){
+                    $count=1;
+                    break;
+                  }
+                //incrementation a chaque ligne trouvée
                 }
 
                 if($count==0){
