@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Déchargement des données de la table `creneau`
 --
 
-INSERT INTO `creneau` (`id`, `heure_deb`, `heure_fin`) VALUES
+INSERT INTO `creneau` (`id_creneau`, `heure_deb`, `heure_fin`) VALUES
 (10, '08:30:00', '10:00:00'),
 (11, '10:30:00', '12:00:00'),
 (12, '13:30:00', '15:00:00'),
