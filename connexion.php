@@ -5,6 +5,7 @@
     <title> Connexion </title>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="connexion_style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="icon" href="images/img5.ico" /> <!-- pour mettre une icone -->
     </title>
   </head>
@@ -24,7 +25,7 @@
                           <br><br>
                          <input type='text' name='email' class="form-control" placeholder='email' required ><br>
                           <input type='password' class="form-control" name="password" placeholder="password" required >
-                          <br>
+                          <br id="br">
                           <br>
                           <button type='submit'class="bouton" name='envoyer'>Valider</button></center>
 
