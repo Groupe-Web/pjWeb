@@ -6,6 +6,60 @@ require_once('class/Salle.php');
 require_once('class/Utilsateur.php');
 require_once('connect.php');
 
+public function getListeSalle()
+{
+  $listeSalles = new array();
+  //requête d'obtention des salles
+  $result = $conn->query('SELECT *
+                          FROM salle
+                          WHERE nbplace > 0');
+
+  while($donnee = $result->fetch()){
+    $listeSalles[] = new Salle($donnee->numero, $donnee->nbplace);
+  }
+
+  return $listeSalles;
+}
+
+public function getListeSalle()
+{
+  //requête d'obtention des salles
+  $result = $conn->query('SELECT *
+                          FROM salle
+                          WHERE nbplace > 0');
+
+  while($donnee = $result->fetch()){
+    $listeSalles[] = new Salle($donnee->numero, $donnee->nbplace);
+  }
+
+  return $listeSalles;
+}
+
+public function getListeCreneau()
+{
+  //requête d'obtention des creneaux
+  $result = $conn->query('SELECT *
+                          FROM creneau');
+
+  while($donnee = $result->fetch()){
+    $listeCreneaux[] = new Creneau($donnee->id, $donnee->date_deb, $donnee->date_fin);
+  }
+
+  return $listeCreneaux;
+}
+
+public function getListeReserver($email)
+{
+  //requête d'obtention des creneaux
+  $result = $conn->query('SELECT *
+                          FROM creneau');
+
+  while($donnee = $result->fetch()){
+    $listeCreneaux[] = new Creneau($donnee->id, $donnee->date_deb, $donnee->date_fin);
+  }
+
+  return $listeCreneaux;
+}
 
 
 // public function insererReservation(){
