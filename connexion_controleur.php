@@ -8,7 +8,7 @@
               if(isset($_POST['email']) && isset($_POST['password'])){
 
                 //recupération des champs en POSTaprès avoir tester si
-                //ils sont bel etv vien rempli
+                //ils sont bel et bien remplisf
                 $email=$_POST['email'];
                 $pass=$_POST['password'];
 
@@ -44,7 +44,8 @@
                   //echo" <script language='javascript'>alert('cet utilisateur est non present dans la base');</script>";
                   ?>
                     <script language='javascript'>
-
+                      //on utilise ici du jquery pour pouvoir ecrire dans une div particulièreq
+                      //le # indique que l'on identifie la div avec son id sinon ctait le point
                       $("#br").after("<span style='color:orange; font-weight:bold;'>email ou pass incorrect</span>");
                     </script>
                   <?php

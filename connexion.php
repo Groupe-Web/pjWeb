@@ -24,10 +24,15 @@
                           <center><span id="connexion">Connexion</span>
                           <br><br>
                          <input type='text' name='email' class="form-control" placeholder='email' required ><br>
-                          <input type='password' class="form-control" name="password" placeholder="password" required >
+                          <input type='password' disabled onkeyup="affiche();"class="form-control" name="password" id='pass' placeholder="password" required >
                           <br id="br">
                           <br>
                           <button type='submit'class="bouton" name='envoyer'>Valider</button></center>
+                          <br>
+                          <?php
+                              include_once('clavier.php'); //apel de la page qui contient le clavier
+
+                           ?>
 
 
                     </form>
@@ -42,7 +47,10 @@
           <!--footer-->
             <div class="row" id='footer'>
             <div class="col-md-4" id='footer_left'></div>
-            <div class="col-md-4" id='footer_center'></div>
+            <div class="col-md-4" id='footer_center'>
+
+
+            </div>
             <div class="col-md-4" id='footer_right'></div>
           </div>
     </div>
