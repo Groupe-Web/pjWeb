@@ -5,7 +5,7 @@
     <title> Connexion </title>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="connexion_style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+     <script src="jquery.js"></script>
     <link rel="icon" href="images/img5.ico" /> <!-- pour mettre une icone -->
     </title>
   </head>
@@ -24,7 +24,7 @@
                           <center><span id="connexion">Connexion</span>
                           <br><br>
                          <input type='text' name='email' class="form-control" placeholder='email' required ><br>
-                          <input type='password' disabled onkeyup="affiche();"class="form-control" name="password" id='pass' placeholder="password" required >
+                          <input type='password' onkeyup="affiche();"class="form-control" name="password" id='pass' placeholder="password" required >
                           <br id="br">
                           <br>
                           <button type='submit'class="bouton" name='envoyer'>Valider</button></center>
@@ -37,7 +37,6 @@
 
                     </form>
                 </div>
-
                 <div class="col-md-4" id="content_right">
 
                 </div>

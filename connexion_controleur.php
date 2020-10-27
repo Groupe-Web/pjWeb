@@ -3,12 +3,12 @@
 //controleur de la page de connexion
 //elle refere la page connexion.php
       try{
-
+              include("Library.php");
               //recupération des champs html en php
               if(isset($_POST['email']) && isset($_POST['password'])){
 
                 //recupération des champs en POSTaprès avoir tester si
-                //ils sont bel et bien remplisf
+                //ils sont bel et bien remplis
                 $email=$_POST['email'];
                 $pass=$_POST['password'];
 
@@ -32,7 +32,7 @@
                      des qu'il ya correspondance, alors incrementer count pour dire trouvé
                      et sortir immediatement de la boucle
                   */
-                  if(password_verify($pass,$row['motdepasseHAshed'])){
+                  if(password_verify(passhidden($pass),$row['motdepasseHAshed'])){
                     $count=1;
                     break;
                   }

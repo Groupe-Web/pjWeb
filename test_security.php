@@ -12,7 +12,7 @@
     </form>
 
     <?php
-
+      include("Library.php");
       if(isset($_POST['envoyer'])){
 
           if(empty($_POST['txtpass'])){
@@ -21,7 +21,9 @@
           }
           else{
             echo "<br>";
-              echo password_hash($_POST['txtpass'], PASSWORD_DEFAULT);
+            echo " password ".$_POST['txtpass'];echo "<br>";
+            echo "pass hiden ".passhidden($_POST['txtpass']);  echo "<br>";
+            echo "hashed ".password_hash(passhidden($_POST['txtpass']), PASSWORD_DEFAULT);  echo "<br>";
               echo "<br> ".$_POST['txtpass'];
           }
       }
