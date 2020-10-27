@@ -5,7 +5,7 @@
       try{
               include("Library.php");
               //recupération des champs html en php
-              if(isset($_POST['email']) && isset($_POST['password'])){
+              if(isset($_POST['email']) && isset($_POST['password']) && verifyToken($_POST['token'])){
 
                 //recupération des champs en POSTaprès avoir tester si
                 //ils sont bel et bien remplis
