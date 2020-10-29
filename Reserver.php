@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+include('reservation_controleur.php');?>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="Reserver_Style.css">
     <link rel="icon" href="images/img5.ico" /> <!-- pour mettre une icone -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Réserver une salle</title>
   </head>
   <body>
@@ -22,32 +25,7 @@
       <p class="texteListe">Choisir une salle</p> <br/>
       <form>
         <select name="nom" size="1" class="liste" id="liste">
-          <option selected>--Sélectionner--</option>
-          <option value="101">101</option>
-          <option value="102">102</option>
-          <option value="103">103</option>
-          <option value="104">104</option>
-          <option value="105">105</option>
-          <option value="106">106</option>
-          <option value="107">107</option>
-          <option value="108">108</option>
-          <option value="109">109</option>
-          <option value="110">110</option>
-          <option value="111">111</option>
-          <option value="112">112</option>
-          <option value="201">201</option>
-          <option value="202">202</option>
-          <option value="203">203</option>
-          <option value="204">204</option>
-          <option value="301">301</option>
-          <option value="302">302</option>
-          <option value="303">303</option>
-          <option value="304">304</option>
-          <option value="305">305</option>
-          <option value="306">306</option>
-          <option value="307">307</option>
-          <option value="308">308</option>
-          <option value="309">309</option>
+            <?php getListeSalle(); ?>
         </select>
       </form>
       <button id="bouton" class="bouton" onclick="openModal()">Ok</button>

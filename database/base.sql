@@ -28,7 +28,7 @@ CREATE TABLE salle(
         numero  Int NOT NULL ,
         nbplace Int NOT NULL,
         nbplacelibre Int NOT NULL
-	,CONSTRAINT salle_PK PRIMARY KEY (numero)
+	,CONSTRAINT numero PRIMARY KEY (numero)
 )ENGINE=InnoDB;
 
 -- ------------------------------------------------------------
@@ -39,7 +39,6 @@ CREATE TABLE creneau(
         id        Int  Auto_increment  NOT NULL ,
         heure_deb Time NOT NULL ,
         heure_fin Time  NOT NULL
-        date_creneau Date NOT NULL
 	,CONSTRAINT creneau_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
@@ -53,9 +52,9 @@ CREATE TABLE reserver(
         id_creneau Int NOT NULL,
         id_salle Int NOT NULL,
         id_utilisateur Int NOT NULL
-	,CONSTRAINT id PRIMARY KEY (id,numero,id_creneau)
+	,CONSTRAINT id PRIMARY KEY (id,id_salle,id_creneau)
 
 	,CONSTRAINT id_utilisateur FOREIGN KEY (id) REFERENCES utilisateur(id)
-	,CONSTRAINT numero_salle FOREIGN KEY (numero) REFERENCES salle(numero)
+	,CONSTRAINT id_salle FOREIGN KEY (id_salle) REFERENCES salle(numero)
 	,CONSTRAINT id_creneau FOREIGN KEY (id_creneau) REFERENCES creneau(id)
 )ENGINE=InnoDB;
