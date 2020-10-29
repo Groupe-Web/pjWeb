@@ -55,7 +55,7 @@
 	 <center  id='clavier'>
 				<button type="button"  id="btn" onclick="calculer(<?php echo $tabnum[0];?>)"value="<?php echo $tabnum[0];?>"><?php echo $tabnum[0];?></button>
 				<button type="button" id="btn"  onclick="calculer(<?php echo $tabnum[1];?>)"value="<?php echo $tabnum[1];?>"><?php echo $tabnum[1];?></button>
-				<button type="button" id="btn"  onclick="calculer(<?php echo $tabnum[2];?>)"value="<?php echo $tabnum[2];?>"><?php echo $tabnum[2];?></button>
+				<button type="button" id="btn"  onclick="calc uler(<?php echo $tabnum[2];?>)"value="<?php echo $tabnum[2];?>"><?php echo $tabnum[2];?></button>
 				<button type="button" id="btn"  onclick="calculer(<?php echo $tabnum[3];?>)"value="<?php echo $tabnum[3];?>"><?php echo $tabnum[3];?></button>
 				<button type="button" id="btn"  onclick="calculer(<?php echo $tabnum[4];?>)"value="<?php echo $tabnum[4];?>"><?php echo $tabnum[4];?></button>
 				<br>

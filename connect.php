@@ -1,5 +1,4 @@
 <?php
-
     $servname = 'localhost';
     $dbname = 'base';
     $user = 'root';

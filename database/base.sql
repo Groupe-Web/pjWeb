@@ -13,13 +13,11 @@ CREATE TABLE utilisateur(
         id         Int  Auto_increment  NOT NULL ,
         nom        Varchar (50) NOT NULL ,
         prenom     Varchar (50) NOT NULL ,
-        email      Varchar (50) NOT NULL ,
+        email      Varchar (50) NOT NULL  UNIQUE ,
         motdepasse Varchar (50) NOT NULL ,
         droit      Varchar (50) NOT NULL COMMENT "droits: admin/etudiant",
         motdepasseHAshed VARCHAR(100) NULL DEFAULT NULL
 	,CONSTRAINT utilisateur_PK PRIMARY KEY (id)
-	,CONSTRAINT utilisateur_PK PRIMARY KEY (id),
-  CONSTRAINT  email UNIQUE
 )ENGINE=InnoDB;
 
 -- ------------------------------------------------------------

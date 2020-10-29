@@ -1,6 +1,10 @@
 <?php
-require_once ('token.php');
-SessionStart();  // ouverture d'une session
+session_start();  // ouverture d'une session
+include_once('token.php');
+attributeToken();
+?>
+
+
 
 <html>
   <head>
@@ -25,11 +29,13 @@ SessionStart();  // ouverture d'une session
                     <form name='form1' method='POST' action='' class="form-group">
                           <center><span id="connexion">Connexion</span>
                           <br><br>
-                          <input type='hidden' name='token' value="<?= $_SESSION['token'] ?>"/>
+                          <!--//?= egale a echo en php-->
+                          <input type='hidden' name='token' value="<?= $_SESSION['token'] ?>">
                           <input type='text' name='email' class="form-control" placeholder='email' required ><br>
                           <input type='password' onkeyup="affiche();"class="form-control" name="password" id='pass' placeholder="password" required >
                           <br id="br">
                           <br>
+
                           <button type='submit'class="bouton" name='envoyer'>Valider</button></center>
                           <br>
                           <?php
@@ -58,10 +64,9 @@ SessionStart();  // ouverture d'une session
     </div>
 
   </body>
-
   <?php
-      include("connect.php"); //connexion à la bd
-      include("connexion_controleur.php");//page du code back-end
+      include_once("connect.php"); //connexion à la bd
+      include_once("connexion_controleur.php");//page du code back-end
 
    ?>
 
