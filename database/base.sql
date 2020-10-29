@@ -18,8 +18,6 @@ CREATE TABLE utilisateur(
         droit      Varchar (50) NOT NULL COMMENT "droits: admin/etudiant",
         motdepasseHAshed VARCHAR(100) NULL DEFAULT NULL
 	,CONSTRAINT utilisateur_PK PRIMARY KEY (id)
-	,CONSTRAINT utilisateur_PK PRIMARY KEY (id),
-  CONSTRAINT  email UNIQUE
 )ENGINE=InnoDB;
 
 -- ------------------------------------------------------------
