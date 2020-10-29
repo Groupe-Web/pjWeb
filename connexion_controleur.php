@@ -5,8 +5,7 @@
       try{
               include("Library.php");
               //recupération des champs html en php
-              if(isset($_POST['email']) && isset($_POST['password']) && verifyToken($_POST['token'])){
-
+              if(isset($_POST['email']) && isset($_POST['password'])){
                 //recupération des champs en POSTaprès avoir tester si
                 //ils sont bel et bien remplis
                 $email=$_POST['email'];
@@ -56,8 +55,9 @@
                 else{
                 //  echo " there are ".$count." arrays";
                 //si on a trouver cet utilisateur, alors on se dirige vers la page de reservation
-
+                  if(isset($_POST['token']) && verifyToken($_POST['token']))
                       header('Location: reservation.php');
+                  
                 }
               }
 
