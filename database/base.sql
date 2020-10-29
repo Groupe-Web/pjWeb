@@ -13,7 +13,7 @@ CREATE TABLE utilisateur(
         id         Int  Auto_increment  NOT NULL ,
         nom        Varchar (50) NOT NULL ,
         prenom     Varchar (50) NOT NULL ,
-        email      Varchar (50) NOT NULL ,
+        email      Varchar (50) NOT NULL  UNIQUE ,
         motdepasse Varchar (50) NOT NULL ,
         droit      Varchar (50) NOT NULL COMMENT "droits: admin/etudiant",
         motdepasseHAshed VARCHAR(100) NULL DEFAULT NULL
@@ -28,7 +28,8 @@ CREATE TABLE utilisateur(
 
 CREATE TABLE salle(
         numero  Int NOT NULL ,
-        nbplace Int NOT NULL
+        nbplace Int NOT NULL,
+        nbplacelibre Int NOT NULL
 	,CONSTRAINT salle_PK PRIMARY KEY (numero)
 )ENGINE=InnoDB;
 
