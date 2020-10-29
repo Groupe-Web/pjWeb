@@ -1,5 +1,4 @@
 <?php
-
     $servname = 'localhost';
     $dbname = 'base';
     $user = 'root';
@@ -16,7 +15,7 @@
       }
       catch (Exception $e) {
 
-        echo " erreur lors de la connection a la BD";
+        echo "erreur lors de la connection a la BD";
 
       }
 

@@ -19,6 +19,7 @@
 #center{
      background:#125976/**#1B85B0/**#E1E8E8 **/;
      margin :left;
+     border-radius: 15px 15px 18px;
 }
 
 input::placeholder{
@@ -53,7 +54,7 @@ input::placeholder{
   color: white;
 }
 body{
-  background-image: url('images/img8.jpg') ;
+  background-image: url('images/img8.jpg') ; */
   background-attachment: fixed;
   filter:Alpha(opacity=10);-moz-opacity:0.94;opacity: 0.9;
 

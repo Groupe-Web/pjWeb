@@ -8,7 +8,7 @@
 -- ------------------------------------------------------------
 --  Dora
 -- ------------------------------------------------------------
-1-  Le texte se connecter est en défilement. il faut arranger ça
+1-  Le texte se connecter est en défilement. il faut arranger ça.
 2-  Essaie de faire en sorte que le design soit exactement comme dans la maquette.
 3-  Tu peux laisser le header comme c'est.
 
