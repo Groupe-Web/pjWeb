@@ -14,7 +14,7 @@ public function getListeSalle()
                           WHERE nbplace > 0');
 
   while($donnee = $result->fetch()){
-    $listeSalles[] = new Salle($donnee->numero, $donnee->nbplace);
+    $listeSalles[] = new Salle($donnee->numero, $donnee->nbplace, $donnee->nbplacelibre);
   }
 
   return $listeSalles;
