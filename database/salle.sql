@@ -26,19 +26,19 @@ SET time_zone = "+00:00";
 -- Déchargement des données de la table `salle`
 --
 
-INSERT INTO `salle` (`numero`, `nbplace`) VALUES
-(109, 30),
-(110, 40),
-(111, 30),
-(112, 50),
-(113, 30),
-(114, 20),
-(115, 30),
-(116, 10),
-(117, 30),
-(118, 60),
-(119, 30),
-(120, 40);
+INSERT INTO `salle` (`numero`, `nbplace`, `nbplacelibre`) VALUES
+(109, 30, 09),
+(110, 40, 15),
+(111, 30, 17),
+(112, 50, 15),
+(113, 30, 17),
+(114, 20, 17),
+(115, 30, 17),
+(116, 10, 09),
+(117, 30, 15),
+(118, 60, 09),
+(119, 30, 15),
+(120, 40, 09);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,7 +1,7 @@
 <?php
 
 function generateToken() {//génère le token
-  return md5(uniqid(microtime(),true) time());
+  return md5(uniqid(microtime(),true), time());
 }
 
 function verifyToken($token) { //verifie le token

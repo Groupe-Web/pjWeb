@@ -6,10 +6,9 @@ require_once('class/Salle.php');
 require_once('class/Utilsateur.php');
 require_once('connect.php');
 
+//récupération des salles
 public function getListeSalle()
 {
-  $listeSalles = new array();
-  //requête d'obtention des salles
   $result = $conn->query('SELECT *
                           FROM salle
                           WHERE nbplace > 0');
@@ -21,23 +20,9 @@ public function getListeSalle()
   return $listeSalles;
 }
 
-public function getListeSalle()
-{
-  //requête d'obtention des salles
-  $result = $conn->query('SELECT *
-                          FROM salle
-                          WHERE nbplace > 0');
-
-  while($donnee = $result->fetch()){
-    $listeSalles[] = new Salle($donnee->numero, $donnee->nbplace);
-  }
-
-  return $listeSalles;
-}
-
+//récupération des creneaux
 public function getListeCreneau()
 {
-  //requête d'obtention des creneaux
   $result = $conn->query('SELECT *
                           FROM creneau');
 
@@ -48,9 +33,9 @@ public function getListeCreneau()
   return $listeCreneaux;
 }
 
+//récupération des réservation
 public function getListeReserver($email)
 {
-  //requête d'obtention des creneaux
   $result = $conn->query('SELECT *
                           FROM creneau');
 
@@ -60,6 +45,52 @@ public function getListeReserver($email)
 
   return $listeCreneaux;
 }
+
+public function getNbPlacesLibres($salle){
+  if($salle==null)
+    return 'erreur fonction getnbplacelibre';
+  $result = $conn->prepare('SELECT nbplacelibre as nl
+                          FROM Reserver
+                          WHERE numero=:numero');
+  $result->bindValue(':numero',$salle->numero);
+  $result->execute();
+  return $result;
+}
+
+//Récupération historique des réservations
+public function getHistorique($email=$_SESSION['email']){
+  if($email==null)
+    return 'erreur au niveu de la fonction getHistorique';
+  $result = $conn->prepare('SELECT *
+                          FROM Reserver
+                          INNER JOIN utilisateur on id_utilisateur=utilisateur.id
+                          INNER JOIN Creneau on id_creneau=creneau.id
+                          INNER JOIN Salle on id_salle=numero
+                          WHERE email=:email');
+  $result->bindValue(':email', $email);
+  $result->execute();
+
+  return $result[placelibre];
+}
+
+//supression d'une réservation et augmentation du nombre de place libre
+public function delHistorique($reserver){
+  if($reserver==null)
+    return 'erreur au niveu de la fonction getHistorique';
+  $result = $conn->prepare('DELETE *
+                          FROM Reserver
+                          WHERE id=:id');
+  $result->bindValue(':id', $reserver->id);
+  $result->execute();
+
+  $result = $conn->prepare('UPDATE Salle
+                          SET nbplacelibre=nbplacelibre+1
+                          WHERE id=:id');
+  $result->bindValue(':id', $reserver->id_salle);
+  $result->execute();
+}
+
+
 
 
 // public function insererReservation(){

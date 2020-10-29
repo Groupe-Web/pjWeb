@@ -8,9 +8,10 @@ class Salle
 
 const ERR_INT = -1;
 
-public function __construct($numero, $nbPlace){
+public function __construct($numero, $nbPlace, nbPlaceLibre){
   $this->numero  = $numero;
   $this->nbPlace = $nbPlace;
+  $this->nbPlaceLibre = $nbPlaceLibre;
 }
 
 //
