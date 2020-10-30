@@ -1,8 +1,8 @@
-<!DOCTYPE html>
 <?php
 session_start();
-include('reservation_controleur.php');?>
-
+include('reservation_controleur.php');
+?>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -15,22 +15,25 @@ include('reservation_controleur.php');?>
       <img src="Images/logo.png" alt="Logo3iL" id="imageLogo">
       <div id="texteBienvenue"> Welcome DJOUKA Dora </div>
       <img src="Images/logo_user.png" alt="LogoUser" id="imageLogoUtilisateur">
-
     </header>
+
     <div class="Barre">
       <img src="Images/log.png" alt="logout" id="imageLogOut">
       Deconnexion
     </div>
     <section class="section section1">
+
+      <?php  include('connect.php')?>
       <p class="texteListe">Choisir une salle</p> <br/>
       <form>
         <select name="nom" size="1" class="liste" id="liste">
-            <?php getListeSalle(); ?>
+          <option selected>--Sélectionner--</option>
+          <?php  menuDeroulantListe($conn); ?>
         </select>
+        <button id="bouton" class="bouton" onclick="openModal()">Ok</button>
       </form>
-      <button id="bouton" class="bouton" onclick="openModal()">Ok</button>
-
     </section>
+
     <div id="overlay" class="overlay">
       <div id="popup" class="popup">
         <h2 id="msg_popup">
@@ -160,7 +163,7 @@ include('reservation_controleur.php');?>
           <td></td>
         </tr>
       </table>
-      <button id="toutSupprimer" class="deleteAll" onclick="supprimerTout()">Valider</button>
+      <button id="toutSupprimer" class="deleteAll" onclick="supprimerTout()">Tout supprimer</button>
     </section>
 
     <div id="slider">
