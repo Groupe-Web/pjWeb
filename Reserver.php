@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-include('reservation_controleur.php');?>
+?>
 
 <html lang="en" dir="ltr">
   <head>
