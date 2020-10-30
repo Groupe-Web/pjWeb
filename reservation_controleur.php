@@ -28,8 +28,6 @@ function menuDeroulantListe($conn){
 }
 
 
-
-
 //récupération des creneaux
 function getListeCreneau()
 {
@@ -43,18 +41,7 @@ function getListeCreneau()
   return $listeCreneaux;
 }
 
-//récupération des réservation
-function getListeReserver($email)
-{
-  $result = $conn->query('SELECT *
-                          FROM creneau');
 
-  while($donnee = $result->fetch()){
-    $listeCreneaux[] = new Creneau($donnee->id, $donnee->date_deb, $donnee->date_fin);
-  }
-
-  return $listeCreneaux;
-}
 
 function getNbPlacesLibres($salle){
   if($salle==null)
@@ -68,7 +55,7 @@ function getNbPlacesLibres($salle){
 }
 
 //Récupération historique des réservations
-function getHistorique($email){
+function getHistorique($email, $conn){
   if($email==null)
     return 'erreur au niveu de la fonction getHistorique';
   $result = $conn->prepare('SELECT *
@@ -80,7 +67,7 @@ function getHistorique($email){
   $result->bindValue(':email', $email);
   $result->execute();
 
-  return $result[placelibre];
+  return $result['placelibre'];
 }
 
 //supression d'une réservation et augmentation du nombre de place libre

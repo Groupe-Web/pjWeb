@@ -25,13 +25,13 @@ include('reservation_controleur.php');
 
       <?php  include('connect.php')?>
       <p class="texteListe">Choisir une salle</p> <br/>
-      <form>
+      <!-- <form> -->
         <select name="nom" size="1" class="liste" id="liste">
           <option selected>--Sélectionner--</option>
           <?php  menuDeroulantListe($conn); ?>
         </select>
         <button id="bouton" class="bouton" onclick="openModal()">Ok</button>
-      </form>
+      <!-- </form> -->
     </section>
 
     <div id="overlay" class="overlay">

@@ -21,7 +21,7 @@
   {
     var btnClose = document.getElementById('btnClose');
     var tab =document.getElementById('tableauH');
-    btnClose.addEventListener('click',closeModal);
+    //btnClose.addEventListener('click',closeModal);
     overlay.style.display='none';
     document.getElementById('tableauH').style.backgroundColor='white';
   }
