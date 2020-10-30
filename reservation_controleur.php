@@ -1,27 +1,37 @@
 <?php
 
-require_once('class/Reserver.php');
-require_once('class/Creneau.php');
-require_once('class/Salle.php');
-require_once('class/Utilsateur.php');
-require_once('connect.php');
+include('class/Reserver.php');
+include('class/Creneau.php');
+include('class/Salle.php');
+include('class/Utilisateur.php');
+include('connect.php');
 
 //récupération des salles
-public function getListeSalle()
-{
+function getListeSalle($conn){
   $result = $conn->query('SELECT *
                           FROM salle
                           WHERE nbplace > 0');
 
   while($donnee = $result->fetch()){
-    $listeSalles[] = new Salle($donnee->numero, $donnee->nbplace, $donnee->nbplacelibre);
+    $listeSalles[] = new Salle($donnee['numero'], $donnee['nbplace'], $donnee['nbplacelibre']);
   }
-
   return $listeSalles;
 }
 
+//affiche menu deroulant listes
+function menuDeroulantListe($conn){
+  $listeSalle = getListeSalle($conn);
+  foreach ($listeSalle as $numeroSalle){
+    echo "<option value='".$numeroSalle->getNumero()."'>".$numeroSalle->getNumero()."</option>";
+    //echo "</br>".$numeroSalle->getNumero();
+  }
+}
+
+
+
+
 //récupération des creneaux
-public function getListeCreneau()
+function getListeCreneau()
 {
   $result = $conn->query('SELECT *
                           FROM creneau');
@@ -34,7 +44,7 @@ public function getListeCreneau()
 }
 
 //récupération des réservation
-public function getListeReserver($email)
+function getListeReserver($email)
 {
   $result = $conn->query('SELECT *
                           FROM creneau');
@@ -46,7 +56,7 @@ public function getListeReserver($email)
   return $listeCreneaux;
 }
 
-public function getNbPlacesLibres($salle){
+function getNbPlacesLibres($salle){
   if($salle==null)
     return 'erreur fonction getnbplacelibre';
   $result = $conn->prepare('SELECT nbplacelibre as nl
@@ -58,7 +68,7 @@ public function getNbPlacesLibres($salle){
 }
 
 //Récupération historique des réservations
-public function getHistorique($email=$_SESSION['email']){
+function getHistorique($email){
   if($email==null)
     return 'erreur au niveu de la fonction getHistorique';
   $result = $conn->prepare('SELECT *
@@ -74,7 +84,7 @@ public function getHistorique($email=$_SESSION['email']){
 }
 
 //supression d'une réservation et augmentation du nombre de place libre
-public function delHistorique($reserver){
+function delHistorique($reserver){
   if($reserver==null)
     return 'erreur au niveu de la fonction getHistorique';
   $result = $conn->prepare('DELETE *
@@ -88,60 +98,4 @@ public function delHistorique($reserver){
                           WHERE id=:id');
   $result->bindValue(':id', $reserver->id_salle);
   $result->execute();
-}
-
-
-
-
-// public function insererReservation(){
-//   try{
-//
-//           //recupération des champs html en php
-//           if(isset($_POST['email']) && isset($_POST['password'])){
-//
-//             //recupération des champs en POSTaprès avoir tester si
-//             //ils sont bel etv vien rempli
-//             $email=$_POST['email'];
-//             $pass=$_POST['password'];
-//
-//             $_SESSION['email']= $email;
-//
-//             //
-//             //requette de selection des utilisateurs
-//             $sth = $conn->prepare('SELECT email,motdepasse FROM utilisateur
-//                                 WHERE email=:email AND motdepasse=:pass');
-//
-//           //passage par valeur
-//             $sth->bindvalue(':email',$email);
-//             $sth->bindvalue(':pass',$pass);
-//
-//             $sth->execute();//execution de la requette
-//             $count=0; //compteur de resultat ,si 0 alors pas de resultats
-//
-//             foreach ($sth as $row) {
-//               $count++; //incrementation a chaque ligne trouvée
-//             }
-//
-//             if($count==0){
-//               //pas de ligne trouvée alors on  déclenche un pop-up js
-//               echo" <script language='javascript'>alert('cet utilisateur est non present dans la base');</script>";
-//
-//               //destruction des variables pour eviter de reload
-//               unset($email);
-//               unset($pass);
-//             }
-//             else{
-//             //  echo " there are ".$count." arrays";
-//             //si on a trouver cet utilisateur, alors on se dirige vers la page de reservation
-//
-//                   header('Location: reservation.php');
-//             }
-//           }
-//
-//       }
-//   catch(PDOException $e){
-//
-//       echo " <br> erreur dans la requette ".$e->getMessage();
-//   }
-
 }
