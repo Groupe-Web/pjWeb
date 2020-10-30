@@ -3,6 +3,7 @@
     $dbname = 'base';
     $user = 'root';
     $pass = '';
+    $conn = '';
 
       try {
 
@@ -10,14 +11,9 @@
 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        echo " connecte a la base <br>";
-
       }
       catch (Exception $e) {
 
         echo "erreur lors de la connection a la BD";
 
       }
-
-
- ?>

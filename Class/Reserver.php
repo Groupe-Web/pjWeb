@@ -7,53 +7,54 @@ class Reserver
   private $idCreneau;
   private $idUtilisateur;
   private $idSalle;
-}
 
-//
-//  Getters
-//
-public function getId(){
-  return $this->id;
-}
 
-public function getDateRéservation(){
-  return $this->dateReservation;
-}
+  //
+  //  Getters
+  //
+  public function getId(){
+    return $this->id;
+  }
 
-public function getIdCreneau(){
-  return $this->idCreneau;
-}
+  public function getDateRéservation(){
+    return $this->dateReservation;
+  }
 
-public function getIdUtilisateur(){
-  return $this->idUtilisateur;
-}
+  public function getIdCreneau(){
+    return $this->idCreneau;
+  }
 
-public function getIdSalle(){
-  return $this->idSalle;
-}
+  public function getIdUtilisateur(){
+    return $this->idUtilisateur;
+  }
 
-//
-//  Setters
-//
-public function setId($id){
-  if(is_int($id))
-    $this->id = $id;
-  else
-    $this->id = ERR_INT; //si $id n'est pas un entier, il vaut -1
-}
+  public function getIdSalle(){
+    return $this->idSalle;
+  }
 
-public function setDateReservation($dateReservation){
-  $this->dateReservation = $dateReservation;
-}
+  //
+  //  Setters
+  //
+  public function setId($id){
+    if(is_int($id))
+      $this->id = $id;
+    else
+      $this->id = ERR_INT; //si $id n'est pas un entier, il vaut -1
+  }
 
-public function setIdCreneau($dateReservation){
-  $this->dateReservation = $dateReservation;
-}
+  public function setDateReservation($dateReservation){
+    $this->dateReservation = $dateReservation;
+  }
 
-public function setIdUtilisateur($idUtilisateur){
-  $this->idUtilisateur = $idUtilisateur;
-}
+  public function setIdCreneau($dateReservation){
+    $this->dateReservation = $dateReservation;
+  }
 
-public function setIdSalle($idSalle){
-  $this->idSalle = $idSalle;
+  public function setIdUtilisateur($idUtilisateur){
+    $this->idUtilisateur = $idUtilisateur;
+  }
+
+  public function setIdSalle($idSalle){
+    $this->idSalle = $idSalle;
+  }
 }

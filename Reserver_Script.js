@@ -25,8 +25,3 @@
     overlay.style.display='none';
     document.getElementById('tableauH').style.backgroundColor='white';
   }
-
-  function confirmerChoix()
-  {
-
-  }

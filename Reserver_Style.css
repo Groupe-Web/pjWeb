@@ -16,7 +16,7 @@ body
 #slider
 {
   width: 80%;
-  max-width: 610px;
+  max-width: 535px;
   overflow: hidden;
 }
 
@@ -34,7 +34,7 @@ body
 #slider figure img
 {
   width: 20%;
-  height: 500px;
+  height: 380px;
   float: left;
 }
 
@@ -67,9 +67,7 @@ body
 .section
 {
   width:27%;
-  min-height: 500px;
-  max-height: 900px;
-  margin-bottom: 10px;
+  height: 450px;
 }
 
 .section1
@@ -139,17 +137,10 @@ body
 .liste
 {
   width: 140px;
-  margin: 95px;
-  margin-top: 0px;
-  position: absolute;
 }
 
 .bouton
 {
-  position: relative;
-  float:right;
-  margin-right: 80px;
-  margin-top: -0.5%;
   cursor: pointer;
 }
 
