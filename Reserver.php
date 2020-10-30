@@ -1,6 +1,6 @@
 <?php
-session_start();
-include('reservation_controleur.php');
+  session_start();
+  include('reservation_controleur.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,13 +25,11 @@ include('reservation_controleur.php');
 
       <?php  include('connect.php')?>
       <p class="texteListe">Choisir une salle</p> <br/>
-      <form>
         <select name="nom" size="1" class="liste" id="liste">
           <option selected>--Sélectionner--</option>
           <?php  menuDeroulantListe($conn); ?>
         </select>
         <button id="bouton" class="bouton" onclick="openModal()">Ok</button>
-      </form>
     </section>
 
     <div id="overlay" class="overlay">
