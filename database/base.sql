@@ -54,7 +54,7 @@ CREATE TABLE reserver(
         id_utilisateur Int NOT NULL
 	,CONSTRAINT id PRIMARY KEY (id,id_salle,id_creneau)
 
-	,CONSTRAINT id_utilisateur FOREIGN KEY (id) REFERENCES utilisateur(id)
+	,CONSTRAINT id_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id)
 	,CONSTRAINT id_salle FOREIGN KEY (id_salle) REFERENCES salle(numero)
 	,CONSTRAINT id_creneau FOREIGN KEY (id_creneau) REFERENCES creneau(id)
 )ENGINE=InnoDB;
