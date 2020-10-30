@@ -1,13 +1,8 @@
 <?php
 session_start();
-<<<<<<< HEAD
-?>
-
-=======
 include('reservation_controleur.php');
 ?>
 <!DOCTYPE html>
->>>>>>> b1674e0c0bbf1529b3772a74f4c0b381fc3bde2f
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -122,10 +117,10 @@ include('reservation_controleur.php');
             </tr>
           </table>
         </div>
-        <br />
+        <br /a
         <input type="checkbox"> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
 
-        <button id="valider" class="valider" onclick="confirmerChoix()">Valider</button>
+        <button id="valider" class="valider">Valider</button>
       </div>
     </div>
 
