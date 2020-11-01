@@ -1,5 +1,16 @@
 <?php
   include('reservation_controleur.php');
-  $email='dorad@3il.fr';
-  var_dump(getHistorique($email, $conn));
-  ?>
+  // include('connect.php');
+  $email='sandy@3il.fr';?>
+  <html>
+    <body>
+      <table>
+        <?php getHistorique($email, $conn);?>
+      </table>
+      <br >
+
+      <table>
+        <?php getListeCreneau($conn)?>
+      </table>
+    </body>
+  </html>
