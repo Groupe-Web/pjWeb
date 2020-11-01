@@ -30,16 +30,21 @@ function menuDeroulantListe($conn){
 
 
 //récupération des creneaux
-function getListeCreneau()
+function getListeCreneau($conn)
 {
   $result = $conn->query('SELECT *
                           FROM creneau');
 
-  while($donnee = $result->fetch()){
-    $listeCreneaux[] = new Creneau($donnee->id, $donnee->date_deb, $donnee->date_fin);
-  }
+//  while($donnee = $result->fetch()){
+//    $listeCreneaux[] = new Creneau($donnee->id, $donnee->date_deb, $donnee->date_fin);
+//  }
 
-  return $listeCreneaux;
+  foreach ($result as $ligne){
+    $tab[] = new creneau($ligne['id'], $ligne['heure_deb'], $ligne['heure_fin']);
+    echo "<option value='".$ligne['heure_deb']."'>".$ligne['heure_fin']."</option>";
+  //  echo "<tr><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td></tr>";
+  }
+  return $tab;
 }
 
 

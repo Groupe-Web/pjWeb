@@ -7,5 +7,10 @@
       <table>
         <?php getHistorique($email, $conn);?>
       </table>
+      <br >
+
+      <table>
+        <?php getListeCreneau($conn)?>
+      </table>
     </body>
   </html>
