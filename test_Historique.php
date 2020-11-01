@@ -4,13 +4,12 @@
   $email='sandy@3il.fr';?>
   <html>
     <body>
-      <table>
-        <?php getHistorique($email, $conn);?>
-      </table>
+
       <br >
 
       <table>
-        <?php getListeCreneau($conn)?>
+        <?php getListeCreneau($conn, 309)?>
+
       </table>
     </body>
   </html>

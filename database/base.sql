@@ -26,7 +26,7 @@ CREATE TABLE utilisateur(
 
 CREATE TABLE salle(
         numero  Int NOT NULL ,
-        nbplace Int NOT NULL,
+        nbplace Int NOT NULL
 	,CONSTRAINT numero PRIMARY KEY (numero)
 )ENGINE=InnoDB;
 
@@ -50,7 +50,7 @@ CREATE TABLE reserver(
         date_reservation Date NOT NULL,
         id_creneau Int NOT NULL,
         id_salle Int NOT NULL,
-        id_utilisateur Int NOT NULL?
+        id_utilisateur Int NOT NULL,
         nbplace_libre Int NULL
 	,CONSTRAINT id PRIMARY KEY (id,id_salle,id_creneau)
 

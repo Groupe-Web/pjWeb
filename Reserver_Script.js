@@ -25,3 +25,9 @@
     overlay.style.display='none';
     document.getElementById('tableauH').style.backgroundColor='white';
   }
+
+  function logout()
+  {
+    var btnLogOut= document.getElementById('boutonD');
+    btnLogOut
+  }

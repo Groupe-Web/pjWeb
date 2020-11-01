@@ -55,6 +55,12 @@ INSERT INTO `reserver` (`id`, `date_reservation`, `id_creneau`, `nbplace_libre`,
 (4, '2020-11-11', 4, 19, 309, 3),
 (5, '2020-12-10', 3, 19, 305, 3);
 
+
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 --
 -- Contenu de la table `salle`
 --
@@ -66,18 +72,13 @@ INSERT INTO `salle` (`numero`, `nbplace`) VALUES
 (305, 20),
 (309, 20);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
 --
 -- Contenu de la table `reserver`
 --
 
-INSERT INTO `reserver` (`id`, `date_reservation`, `id_creneau`, `id_salle`, `id_utilisateur`) VALUES
-(1, '2020-10-31', 1, 108, 2),
-(2, '2020-10-31', 2, 110, 3),
-(3, '2020-11-12', 3, 309, 3),
-(4, '2020-11-11', 4, 309, 3),
-(5, '2020-12-10', 3, 305, 3);
+INSERT INTO `reserver` (`date_reservation` ,`id_creneau`, `id_salle`, `id_utilisateur`, `nbplace_libre`) VALUES
+('2020-10-31', 1, 108, 2, 25),
+('2020-10-31', 2, 110, 3, 25),
+('2020-11-12', 3, 309, 3, 25),
+('2020-11-11', 4, 309, 3, 25),
+('2020-12-10', 3, 305, 3, 25);

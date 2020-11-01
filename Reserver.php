@@ -4,21 +4,26 @@
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="Reserver_Style.css">
     <link rel="icon" href="images/img5.ico" /> <!-- pour mettre une icone -->
     <title>Réserver une salle</title>
   </head>
+
   <body>
     <header>
       <img src="Images/logo.png" alt="Logo3iL" id="imageLogo">
-      <div id="texteBienvenue"> Welcome DJOUKA Dora </div>
+      <div id="texteBienvenue">
+        <?php
+          echo $_SESSION["email"];
+        ?> </div>
       <img src="Images/logo_user.png" alt="LogoUser" id="imageLogoUtilisateur">
     </header>
 
     <div class="Barre">
-
+      <button id="boutonD" class="boutonD" onclick="window.location='Accueil.php'">Deconnexion</button>
     </div>
     <section class="section section1">
 
@@ -37,19 +42,24 @@
           Salle
           <span id="btnClose" class="btnClose" onclick="closeModal()">&times;</span>
         </h2>
-          Choisir une date: <input type="date" id="dateChoisie"</input><br /><br />
-          <select name="nom" size="1" class="listeT" id="listeT">
-            <option selected>--Sélectionner--</option>
-            <?php  getListeCreneau($conn); ?>
-          </select>
+          Choisir une date: <input type="date" id="dateChoisie"></input><br /><br />
+          <table>
+            <thead>
+              <td>Heure début</td>
+              <td>Heure fin</td>
+              <td>Places disponibles</td>
+            </thead>
+            <?php getListeCreneau($conn, 309)?>
+          </table>
         <br /> <br />
-        <input type="checkbox"> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
+        <input type="checkbox" required> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
 
         <button id="valider" class="valider">Valider</button>
       </div>
     </div>
 
     <section class="section section2">
+      <br />
       <div>HISTORIQUE</div><br />
       <table>
         <thead>

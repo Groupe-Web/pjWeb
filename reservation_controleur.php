@@ -7,6 +7,16 @@ include('class/Utilisateur.php');
 include('class/Historique.php');
 include('connect.php');
 
+function enregistrerReservation($conn,$dateR,$creneau,$salle,$id)
+{
+  $result = $conn->prepare('INSERT INTO `reserver`(`date_reservation`, `id_creneau`, `id_salle`, `id_utilisateur`)
+                          VALUES ($dateR,$creneau,$salle,$id)
+                          FROM reserver
+                          WHERE id_utilisateur=id');
+
+  $result->execute();
+}
+
 //récupération des salles
 function getListeSalle($conn){
   $result = $conn->query('SELECT *
@@ -30,21 +40,31 @@ function menuDeroulantListe($conn){
 
 
 //récupération des creneaux
-function getListeCreneau($conn)
+function getListeCreneau($conn, $numero)
 {
-  $result = $conn->query('SELECT *
-                          FROM creneau');
+  $result = $conn->prepare('SELECT heure_deb,heure_fin, nbplace_libre
+                          FROM salle, creneau
+                          INNER JOIN reserver ON id_creneau=creneau.id
+                          INNER JOIN utilisateur ON id_utilisateur=utilisateur.id
+                          WHERE salle.numero=:id_salle');
+            $result->bindValue('id_salle', $numero);
+            $result->execute();
 
-//  while($donnee = $result->fetch()){
-//    $listeCreneaux[] = new Creneau($donnee->id, $donnee->date_deb, $donnee->date_fin);
-//  }
+ while($donnee = $result->fetch()){
+   $listeCreneaux[] = $donnee;
+   echo "<tr><td>".$donnee['heure_deb']."</td><td>".$donnee['heure_fin']."</td><td>".$donnee['nbplace_libre']."</td></tr>";
+ }
 
+  //print_r($listeCreneaux);
+}
+
+function afficheCreneau($tab){
   foreach ($result as $ligne){
-    $tab[] = new creneau($ligne['id'], $ligne['heure_deb'], $ligne['heure_fin']);
-    echo "<option value='".$ligne['heure_deb']."'>".$ligne['heure_fin']."</option>";
+    $tab[] = new creneau($ligne['id'], $ligne['heure_deb'], $ligne['heure_fin'],$ligne['nbplace_libre']);
+    echo "<tr><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td><td>".$ligne['nbplace_libre']."</td></tr>";
+
   //  echo "<tr><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td></tr>";
   }
-  return $tab;
 }
 
 
@@ -75,7 +95,7 @@ function getHistorique($email, $conn){
     $tab[] ='';
   foreach ($result as $ligne){
     $tab[] = new Historique($ligne['id_salle'], $ligne['date_reservation'], $ligne['heure_deb'], $ligne['heure_fin'], $email);
-    echo "<tr><td>".$ligne['id_salle']."</td><td>".$ligne['date_reservation']."</td><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td></tr>";
+    echo "<tr><td>".$ligne['id_salle']."</td><td>".$ligne['date_reservation']."</td><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td><td><input type='checkbox'></input></td></tr>";
   }
   return $tab;
 }

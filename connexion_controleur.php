@@ -56,7 +56,7 @@
                 //  echo " there are ".$count." arrays";
                 //si on a trouver cet utilisateur, alors on se dirige vers la page de reservation
                   if(isset($_POST['token']) && verifyToken($_POST['token']))
-                      header('Location: reservation.php');
+                      header('Location: Reserver.php');
 
                 }
               }
