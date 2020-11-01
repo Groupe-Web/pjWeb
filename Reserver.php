@@ -114,10 +114,10 @@
             </tr>
           </table>
         </div>
-        <br />
+        <br /a
         <input type="checkbox"> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
 
-        <button id="valider" class="valider" onclick="confirmerChoix()">Valider</button>
+        <button id="valider" class="valider">Valider</button>
       </div>
     </div>
 

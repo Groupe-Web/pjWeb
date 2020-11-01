@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 30 Octobre 2020 à 02:05
+-- Généré le :  Ven 30 Octobre 2020 à 23:50
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -44,17 +44,27 @@ INSERT INTO `creneau` (`id`, `heure_deb`, `heure_fin`) VALUES
 (4, '10:30:00', '11:00:00'),
 (5, '11:00:00', '11:30:00');
 
+--
+-- Contenu de la table `reserver`
+--
+
+INSERT INTO `reserver` (`id`, `date_reservation`, `id_creneau`, `nbplace_libre`, `id_salle`, `id_utilisateur`) VALUES
+(1, '2020-10-31', 1, 19, 108, 2),
+(2, '2020-10-31', 2, 19, 110, 3),
+(3, '2020-11-12', 3, 19, 309, 3),
+(4, '2020-11-11', 4, 19, 309, 3),
+(5, '2020-12-10', 3, 19, 305, 3);
 
 --
 -- Contenu de la table `salle`
 --
 
-INSERT INTO `salle` (`numero`, `nbplace`, `nbplacelibre`) VALUES
-(108, 20, 20),
-(110, 20, 20),
-(112, 20, 20),
-(305, 20, 20),
-(309, 40, 40);
+INSERT INTO `salle` (`numero`, `nbplace`) VALUES
+(108, 20),
+(110, 20),
+(112, 20),
+(305, 20),
+(309, 20);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
