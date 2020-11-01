@@ -38,10 +38,12 @@ attributeToken();
 
                           <button type='submit'class="bouton" name='envoyer'>Valider</button></center>
                           <br>
+                          <div id='div_clavier' class='class_clavier' style="display:block;">
                           <?php
                               include_once('clavier.php'); //apel de la page qui contient le clavier
 
                            ?>
+                         </div>
 
 
                     </form>
