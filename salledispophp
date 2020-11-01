@@ -1,0 +1,21 @@
+<?php
+session_start();
+include("connexion.php");
+
+
+
+  $searchSalle = $maco -> prepare("SELECT ID_Salle,Numero From DisponibiliteSalle INNER JOIN Salle ON DisponibiliteSalle.ID_Salle = Salle.ID where Date = :dateresa AND ID_TrancheHoraire = :idhoraire");
+  $searchSalle->bindParam(":dateresa",$_GET['dateresa']);
+  $searchSalle->bindParam(":idhoraire",$_GET['idhoraire']);
+  $searchSalle->execute();
+  $tabRes = $searchSalle->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
+  echo json_encode($tabRes);
+
+
+
+
+ ?>

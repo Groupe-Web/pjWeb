@@ -115,7 +115,7 @@
             </tr>
           </table>
         </div>
-        <br /a
+        <br>
         <input type="checkbox"> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
 
         <button id="valider" class="valider">Valider</button>
@@ -191,5 +191,5 @@
     </footer>
     <script src="Reserver_Script.js"></script>
   </body>
-
+<!--use_keyboard_input-->
 </html>
