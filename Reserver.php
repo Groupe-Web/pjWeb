@@ -18,8 +18,7 @@
     </header>
 
     <div class="Barre">
-      <img src="Images/log.png" alt="logout" id="imageLogOut">
-      Deconnexion
+
     </div>
     <section class="section section1">
 
@@ -38,6 +37,7 @@
           Salle
           <span id="btnClose" class="btnClose" onclick="closeModal()">&times;</span>
         </h2>
+<<<<<<< HEAD
         <div class="texteListe tableau">
           Plage Horaires <br /> <br />
           <table id="tableauH">
@@ -116,51 +116,32 @@
           </table>
         </div>
         <br>
+=======
+          Choisir une date: <input type="date" id="dateChoisie"</input><br /><br />
+          <select name="nom" size="1" class="listeT" id="listeT">
+            <option selected>--Sélectionner--</option>
+            <?php  getListeCreneau($conn); ?>
+          </select>
+        <br /> <br />
+>>>>>>> bebde450fa2fe74a4a81320a1169104c165553ef
         <input type="checkbox"> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
 
         <button id="valider" class="valider">Valider</button>
       </div>
     </div>
 
-    <section class=" section section2">
-      <div>HISTORIQUE</div><br>
-      <table class="tableauHistorique">
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+    <section class="section section2">
+      <div>HISTORIQUE</div><br />
+      <table>
+        <thead>
+          <td>Salle</td>
+          <td>Date Reservation</td>
+          <td>Heure début</td>
+          <td>Heure fin</td>
+        </thead>
+        <?php getHistorique('sandy@3il.fr', $conn);?>
       </table>
+      <br /><br />
       <button id="toutSupprimer" class="deleteAll" onclick="supprimerTout()">Tout supprimer</button>
     </section>
 
@@ -174,7 +155,7 @@
       </figure>
     </div>
 
-    </p>
+
 
     <footer>
       <div id="bloc1">
