@@ -4,6 +4,7 @@ include('class/Reserver.php');
 include('class/Creneau.php');
 include('class/Salle.php');
 include('class/Utilisateur.php');
+include('class/Historique.php');
 include('connect.php');
 
 //récupération des salles
@@ -58,16 +59,20 @@ function getNbPlacesLibres($salle){
 function getHistorique($email, $conn){
   if($email==null)
     return 'erreur au niveu de la fonction getHistorique';
-  $result = $conn->prepare('SELECT *
-                          FROM Reserver
-                          INNER JOIN utilisateur on id_utilisateur=utilisateur.id
-                          INNER JOIN Creneau on id_creneau=creneau.id
-                          INNER JOIN Salle on id_salle=numero
+  $result = $conn->prepare('SELECT id_salle, date_reservation, heure_deb, heure_fin
+                          FROM reserver
+                          INNER JOIN creneau on id_creneau = creneau.id
+                          INNER JOIN utilisateur on id_utilisateur = utilisateur.id
                           WHERE email=:email');
   $result->bindValue(':email', $email);
   $result->execute();
 
-  return $result['placelibre'];
+    $tab[] ='';
+  foreach ($result as $ligne){
+    $tab[] = new Historique($ligne['id_salle'], $ligne['date_reservation'], $ligne['heure_deb'], $ligne['heure_fin'], $email);
+    echo "<tr><td>".$ligne['id_salle']."</td><td>".$ligne['date_reservation']."</td><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td></tr>";
+  }
+  return $tab;
 }
 
 //supression d'une réservation et augmentation du nombre de place libre

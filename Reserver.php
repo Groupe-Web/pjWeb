@@ -18,8 +18,7 @@
     </header>
 
     <div class="Barre">
-      <img src="Images/log.png" alt="logout" id="imageLogOut">
-      Deconnexion
+
     </div>
     <section class="section section1">
 
@@ -39,7 +38,7 @@
           <span id="btnClose" class="btnClose" onclick="closeModal()">&times;</span>
         </h2>
         <div class="texteListe tableau">
-          Plage Horaires <br /> <br />
+          Choisir une date: <input type="date" id="dateChoisie"</input><br /><br />
           <table id="tableauH">
             <tr id="tr" class="trH" onclick="document.getElementById('tr').style.backgroundColor='cyan'">
               <td id="tdH">8h30-9h00</td>
@@ -122,45 +121,18 @@
       </div>
     </div>
 
-    <section class=" section section2">
-      <div>HISTORIQUE</div><br>
-      <table class="tableauHistorique">
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></input></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+    <section class="section section2">
+      <div>HISTORIQUE</div><br />
+      <table>
+        <thead>
+          <td>Salle</td>
+          <td>Date Reservation</td>
+          <td>Heure début</td>
+          <td>Heure fin</td>
+        </thead>
+        <?php getHistorique('sandy@3il.fr', $conn);?>
       </table>
+      <br /><br />
       <button id="toutSupprimer" class="deleteAll" onclick="supprimerTout()">Tout supprimer</button>
     </section>
 
@@ -174,7 +146,7 @@
       </figure>
     </div>
 
-    </p>
+
 
     <footer>
       <div id="bloc1">

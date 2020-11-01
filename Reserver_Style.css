@@ -56,12 +56,6 @@ body
   width: auto;
   height: 30px;
   background-color: rgb(0,48,73);
-  font-style: italic;
-  color: black;
-  font-family: sans-serif;
-  font-size: 18px;
-  text-align: right;
-  padding-right: 25px;
 }
 
 .section
@@ -78,15 +72,9 @@ body
 
 .section2
 {
-  float: right;
   background-color: rgb(0,48,73);
-  padding-left: 30px;
-  color: white;
-  font-style: italic;
-  font-family: sans-serif;
-  font-size: 18px;
-  text-align: center;
-  padding-top:10px;
+  float: right;
+  color:black;
 }
 
 #imageLogo
@@ -174,8 +162,6 @@ body
   height:62%;
 }
 
-
-
 .btnClose
 {
   float:right;
@@ -184,14 +170,14 @@ body
   color: rgb(26, 26, 26);
 }
 
-#tableauH
+table
 {
   border: 2px solid black;
   width:100%;
   max-height: 50%;
 }
 
-.tableau
+.tableauH
 {
   padding-top: 0px;
   overflow-y: scroll;
@@ -211,7 +197,10 @@ body
 
 .tableauHistorique
 {
-  border-collapse: collapse;
+  border: 2px solid black;
+  font-size: 18px;
+  padding:10px;
+  color:black;
 }
 
 footer
