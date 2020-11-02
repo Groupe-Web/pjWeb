@@ -33,6 +33,8 @@ function AfficheData()
               let sallNum=document.createElement('select');
               let table=document.createElement('table');
                     //on cree un element select qu'on ajoutera dans une div de la page
+                    //
+
 
                 for (var val of data) {
 
@@ -48,7 +50,7 @@ function AfficheData()
                    td1.appendChild(document.createTextNode(''+val.date_reservation+''));
                    btn.value=val.id; //met l'id dans value du BUTTON
                     btn.appendChild(document.createTextNode('\u274c '));
-                    btn.setAttribute("OnClick","alert("+btn.value+");");
+                    btn.setAttribute("OnClick","supprimer("+btn.value+");");
                    td2.appendChild(btn); //ajout du btn dans le td2
                   // option.appendChild(document.createTextNode(''+val.date_reservation+''));
                    //ajoute l'option que l'on vient de creer dans le select
@@ -74,14 +76,11 @@ function AfficheData()
 
   //fonction pour supprimer
   function Supprimer(valeur){
-    $.get("traitement.php",
+    $.get("traitement2.php",{id:valeur},
     function(data)
     {
-
-                data=JSON.parse(data);
-
-
-
+            data=JSON.parse(data);
+    });
   }
 
   //fonction pour debuter la boucle de rafraichissemnt
@@ -93,7 +92,7 @@ function AfficheData()
           i=1;
         }
         else{
-          setInterval("AfficheData()",3000); // le temps est en mills , boucle l'exe de la fonction en param
+          setInterval("AfficheData()",1000); // le temps est en mills , boucle l'exe de la fonction en param
         }
   }
 
