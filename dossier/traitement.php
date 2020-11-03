@@ -1,4 +1,5 @@
 <?php
+session_start();
   include('connect.php');
 
   $req="SELECT id,date_reservation FROM reserver ";
