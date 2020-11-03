@@ -1,7 +1,11 @@
 <?php
-
+//session_start();
 //controleur de la page de connexion
 //elle refere la page connexion.php
+$_SESSION['nom']=' ';
+$_SESSION['prenom']=' ';
+$_SESSION['email']=' ';
+$_SESSION['droit']=' ';
       try{
               include("Library.php");
               //recupération des champs html en php
@@ -24,6 +28,7 @@
 
                 $sth->execute();//execution de la requette
                 $count=0; //compteur de resultat ,si 0 alors pas de resultats
+                
 
                 foreach ($sth as $row) {
 
@@ -33,6 +38,11 @@
                   */
                   if(password_verify(passhidden($pass),$row['motdepasseHAshed'])){
                     $count=1;
+                    $_SESSION['nom']=$row['nom'];
+                        $_SESSION['prenom']=$row['prenom'];
+                            $_SESSION['email']=$row['email'];
+                                $_SESSION['droit']=$row['droit'];
+
                     break;
                   }
                 //incrementation a chaque ligne trouvée
@@ -56,7 +66,7 @@
                 //  echo " there are ".$count." arrays";
                 //si on a trouver cet utilisateur, alors on se dirige vers la page de reservation
                   if(isset($_POST['token']) && verifyToken($_POST['token']))
-                      header('Location: reservation.php');
+                      header('Location: Reserver.php');
 
                 }
               }

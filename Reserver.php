@@ -1,5 +1,10 @@
 <?php
   session_start();
+
+  if($_SESSION['droit']==' ' || $_SESSION['nom']==' ' || $_SESSION['email']==' '){
+      header('Location: connexion.php');
+  }
+
   include('reservation_controleur.php');
 ?>
 <!DOCTYPE html>
@@ -7,14 +12,19 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="Reserver_Style.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="icon" href="images/img5.ico" /> <!-- pour mettre une icone -->
     <title>Réserver une salle</title>
   </head>
   <body>
     <header>
-      <img src="Images/logo.png" alt="Logo3iL" id="imageLogo">
-      <div id="texteBienvenue"> Welcome DJOUKA Dora </div>
-      <img src="Images/logo_user.png" alt="LogoUser" id="imageLogoUtilisateur">
+        <form name='deconnexion' method='post' action="deconnexion.php">
+        <img src="Images/logo.png" alt="Logo3iL" id="imageLogo">
+        <div id="texteBienvenue"> Welcome <?php echo $_SESSION['prenom']."  ".$_SESSION['nom']?>
+            <button  type='submit' onclick="sedeconnecter()" class="btn btn-success" id="deconnexion">Se deconnecter</button>
+        </div>
+        <img src="Images/logo_user.png" alt="LogoUser" id="imageLogoUtilisateur">
+      </form>
     </header>
 
     <div class="Barre">
@@ -123,7 +133,7 @@
             <?php  getListeCreneau($conn); ?>
           </select>
         <br /> <br />
->>>>>>> bebde450fa2fe74a4a81320a1169104c165553ef
+
         <input type="checkbox"> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
 
         <button id="valider" class="valider">Valider</button>
@@ -171,6 +181,7 @@
       &nbsp <br/><br />Copyright ZED Reservation - Tous droits réservés
     </footer>
     <script src="Reserver_Script.js"></script>
+
   </body>
 <!--use_keyboard_input-->
 </html>
