@@ -41,15 +41,20 @@
         <h2 id="msg_popup">
           Salle
           <span id="btnClose" class="btnClose" onclick="closeModal()">&times;</span>
-        </h2>
+        </h2><?php $tab = getListeCreneau($conn, 108, '2020-10-31') ?>
           Choisir une date: <input type="date" id="dateChoisie"></input><br /><br />
-          <table>
-            <thead>
-              <td>Heure début</td>
-              <td>Heure fin</td>
-              <td>Places disponibles</td>
-            </thead>
-            <?php getListeCreneau($conn, 309)?>
+          <table id="tableauH">
+            <tr id="tr" class="trH" onclick="document.getElementById('tr').style.backgroundColor='cyan'">
+              <td id="tdH"><?= substr($tab[0]['heure_deb'], 0, -3); ?> - <?= substr($tab[0]['heure_fin'], 0, -3); ?></td>
+              <td id="tdH"><?= $tab[0]['nbplace_libre']; ?> places disponibles</td>
+            </tr>
+<?php for($i=1; $i<count($tab); $i++){
+    echo"     <tr id='tr".($i+1)."' class='trH' onclick=\"document.getElementById('tr".($i+1)."').style.backgroundColor='cyan'\">";
+    echo"          <td id='tdH'>".substr($tab[$i]['heure_deb'], 0, -3)." - ".substr($tab[$i]['heure_fin'], 0, -3)."</td>";
+    echo"          <td id='tdH'>".$tab[$i]['nbplace_libre']." places disponibles</td>";
+    echo"     </tr>";
+}?>
+
           </table>
         <br /> <br />
         <input type="checkbox" required> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
