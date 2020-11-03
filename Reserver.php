@@ -1,29 +1,34 @@
 <?php
   session_start();
+
+  if($_SESSION['droit']==' ' || $_SESSION['nom']==' ' || $_SESSION['email']==' '){
+      header('Location: connexion.php');
+  }
+
   include('reservation_controleur.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="Reserver_Style.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="icon" href="images/img5.ico" /> <!-- pour mettre une icone -->
     <title>Réserver une salle</title>
   </head>
-
   <body>
     <header>
-      <img src="Images/logo.png" alt="Logo3iL" id="imageLogo">
-      <div id="texteBienvenue">
-        <?php
-          echo $_SESSION["email"];
-        ?> </div>
-      <img src="Images/logo_user.png" alt="LogoUser" id="imageLogoUtilisateur">
+        <form name='deconnexion' method='post' action="deconnexion.php">
+        <img src="Images/logo.png" alt="Logo3iL" id="imageLogo">
+        <div id="texteBienvenue"> Welcome <?php echo $_SESSION['prenom']."  ".$_SESSION['nom']?>
+            <button  type='submit' onclick="sedeconnecter()" class="btn btn-success" id="deconnexion">Se deconnecter</button>
+        </div>
+        <img src="Images/logo_user.png" alt="LogoUser" id="imageLogoUtilisateur">
+      </form>
     </header>
 
     <div class="Barre">
-      <button id="boutonD" class="boutonD" onclick="window.location='Accueil.php'">Deconnexion</button>
+
     </div>
     <section class="section section1">
 
@@ -56,15 +61,22 @@
 }?>
 
           </table>
+        </div>
+        <br>
+          Choisir une date: <input type="date" id="dateChoisie"</input><br /><br />
+          <select name="nom" size="1" class="listeT" id="listeT">
+            <option selected>--Sélectionner--</option>
+            <?php  getListeCreneau($conn); ?>
+          </select>
         <br /> <br />
-        <input type="checkbox" required> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
+
+        <input type="checkbox"> Je m'engage à respecter l'horaire choisie ou, le cas échéant, me désister à temps</input> <br /> <br />
 
         <button id="valider" class="valider">Valider</button>
       </div>
     </div>
 
     <section class="section section2">
-      <br />
       <div>HISTORIQUE</div><br />
       <table>
         <thead>
@@ -105,6 +117,7 @@
       &nbsp <br/><br />Copyright ZED Reservation - Tous droits réservés
     </footer>
     <script src="Reserver_Script.js"></script>
-  </body>
 
+  </body>
+<!--use_keyboard_input-->
 </html>
