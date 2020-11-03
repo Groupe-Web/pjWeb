@@ -8,7 +8,7 @@
       <br >
 
       <table>
-        <?php getListeCreneau($conn, 309)?>
+        <?php print_r(getListeCreneau($conn, 309))?>
 
       </table>
     </body>
