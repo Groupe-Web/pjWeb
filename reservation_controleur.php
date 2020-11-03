@@ -40,10 +40,45 @@ function menuDeroulantListe($conn){
 
 
 //récupération des creneaux
-function getListeCreneau($conn)
+function getListeCreneau($conn, $numero, $dater)
 {
-  $result = $conn->query('SELECT *
+  $result = $conn->prepare('SELECT id, heure_deb,heure_fin
                           FROM creneau');
+  $result->execute();
+
+ while($donnee = $result->fetch()){
+   $result2 = $conn->prepare('SELECT nbplace_libre
+                              FROM reserver
+                              WHERE id_creneau=:id_creneau AND id_salle=:numero AND date_reservation=:dater');
+  $result2->bindValue('id_creneau', $donnee['id']);
+  $result2->bindValue('numero', $numero);
+  $result2->bindValue('dater', $dater);
+  $result2->execute();
+  $donnee2=$result2->fetch();
+  if(isset($donnee2['nbplace_libre']))
+    $donnee['nbplace_libre']= $donnee2['nbplace_libre'];
+  else
+    $donnee['nbplace_libre']= 0;
+
+  $tab[]=$donnee;
+ }
+
+ return $tab;
+}
+
+function getIdUtilisateur($conn, $email)
+{
+  $result = $conn->prepare('SELECT id
+                          FROM utilisateur
+                          WHERE email = :email');
+  $result->bindValue('email', $email);
+  $result->execute();
+
+  while($donnee = $result->fetch()){
+    $tab = $donnee;
+  }
+  return $tab['id'];
+}
 
 //  while($donnee = $result->fetch()){
 //    $listeCreneaux[] = new Creneau($donnee->id, $donnee->date_deb, $donnee->date_fin);

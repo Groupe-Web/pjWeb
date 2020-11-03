@@ -10,7 +10,8 @@
       <br >
 
       <table>
-        <?php getListeCreneau($conn)?>
+        <?php print_r(getListeCreneau($conn, 309))?>
+
       </table>
     </body>
   </html>

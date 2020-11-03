@@ -46,87 +46,23 @@
         <h2 id="msg_popup">
           Salle
           <span id="btnClose" class="btnClose" onclick="closeModal()">&times;</span>
-        </h2>
-<<<<<<< HEAD
-        <div class="texteListe tableau">
-          Plage Horaires <br /> <br />
+        </h2><?php $tab = getListeCreneau($conn, 108, '2020-10-31') ?>
+          Choisir une date: <input type="date" id="dateChoisie"></input><br /><br />
           <table id="tableauH">
             <tr id="tr" class="trH" onclick="document.getElementById('tr').style.backgroundColor='cyan'">
-              <td id="tdH">8h30-9h00</td>
-              <td id="tdH">places disponibles</td>
+              <td id="tdH"><?= substr($tab[0]['heure_deb'], 0, -3); ?> - <?= substr($tab[0]['heure_fin'], 0, -3); ?></td>
+              <td id="tdH"><?= $tab[0]['nbplace_libre']; ?> places disponibles</td>
             </tr>
-            <tr id="tr2" class="trH" onclick="document.getElementById('tr2').style.backgroundColor='cyan'">
-              <td id="tdH">9h00-9h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr3" class="trH" onclick="document.getElementById('tr3').style.backgroundColor='cyan'">
-              <td id="tdH">9h30-10h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr4" class="trH" onclick="document.getElementById('tr4').style.backgroundColor='cyan'">
-              <td id="tdH">10h00-10h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr5" class="trH" onclick="document.getElementById('tr5').style.backgroundColor='cyan'">
-              <td id="tdH">10h30-11h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr6" class="trH" onclick="document.getElementById('tr6').style.backgroundColor='cyan'">
-              <td id="tdH">11h00-11h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr7" class="trH" onclick="document.getElementById('tr7').style.backgroundColor='cyan'">
-              <td id="tdH">11h30-12h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr8" class="trH" onclick="document.getElementById('tr8').style.backgroundColor='cyan'">
-              <td id="tdH">12h00-12h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr9" class="trH" onclick="document.getElementById('tr9').style.backgroundColor='cyan'">
-              <td id="tdH">12h30-13h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr10" class="trH" onclick="document.getElementById('tr10').style.backgroundColor='cyan'">
-              <td id="tdH">13h00-13h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr11" class="trH" onclick="document.getElementById('tr11').style.backgroundColor='cyan'">
-              <td id="tdH">13h30-14h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr12" class="trH" onclick="document.getElementById('tr12').style.backgroundColor='cyan'">
-              <td id="tdH">14h00-14h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr13" class="trH" onclick="document.getElementById('tr13').style.backgroundColor='cyan'">
-              <td id="tdH">14h30-15h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr14" class="trH" onclick="document.getElementById('tr14').style.backgroundColor='cyan'">
-              <td id="tdH">15h00-15h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr15" class="trH" onclick="document.getElementById('tr15').style.backgroundColor='cyan'">
-              <td id="tdH">15h30-16h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr16" class="trH" onclick="document.getElementById('tr16').style.backgroundColor='cyan'">
-              <td id="tdH">16h00-16h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr17" class="trH" onclick="document.getElementById('tr17').style.backgroundColor='cyan'">
-              <td id="tdH">16h30-17h00</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
-            <tr id="tr18" class="trH" onclick="document.getElementById('tr18').style.backgroundColor='cyan'">
-              <td id="tdH">17h00-17h30</td>
-              <td id="tdH">places disponibles</td>
-            </tr>
+<?php for($i=1; $i<count($tab); $i++){
+    echo"     <tr id='tr".($i+1)."' class='trH' onclick=\"document.getElementById('tr".($i+1)."').style.backgroundColor='cyan'\">";
+    echo"          <td id='tdH'>".substr($tab[$i]['heure_deb'], 0, -3)." - ".substr($tab[$i]['heure_fin'], 0, -3)."</td>";
+    echo"          <td id='tdH'>".$tab[$i]['nbplace_libre']." places disponibles</td>";
+    echo"     </tr>";
+}?>
+
           </table>
         </div>
         <br>
-=======
           Choisir une date: <input type="date" id="dateChoisie"</input><br /><br />
           <select name="nom" size="1" class="listeT" id="listeT">
             <option selected>--Sélectionner--</option>
