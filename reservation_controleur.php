@@ -7,6 +7,16 @@ include('class/Utilisateur.php');
 include('class/Historique.php');
 include('connect.php');
 
+function enregistrerReservation($conn,$dateR,$creneau,$salle,$id)
+{
+  $result = $conn->prepare('INSERT INTO `reserver`(`date_reservation`, `id_creneau`, `id_salle`, `id_utilisateur`)
+                          VALUES ($dateR,$creneau,$salle,$id)
+                          FROM reserver
+                          WHERE id_utilisateur=id');
+
+  $result->execute();
+}
+
 //récupération des salles
 function getListeSalle($conn){
   $result = $conn->query('SELECT *
@@ -76,6 +86,7 @@ function getHistorique($email, $conn){
   foreach ($result as $ligne){
     $tab[] = new Historique($ligne['id_salle'], $ligne['date_reservation'], $ligne['heure_deb'], $ligne['heure_fin'], $email);
     echo "<tr><td>".$ligne['id_salle']."</td><td>".$ligne['date_reservation']."</td><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td></tr>";
+    echo "<tr><td>".$ligne['id_salle']."</td><td>".$ligne['date_reservation']."</td><td>".$ligne['heure_deb']."</td><td>".$ligne['heure_fin']."</td><td><input type='checkbox'></input></td></tr>";
   }
   return $tab;
 }

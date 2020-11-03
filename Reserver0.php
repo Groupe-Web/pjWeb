@@ -190,14 +190,7 @@
       &nbsp <br/><br />Copyright ZED Reservation - Tous droits réservés
     </footer>
     <script src="Reserver_Script.js"></script>
-    <script type='text/javascript'>
 
-        function sedeconnecter(){
-          $.get("deconnexion.php",function(){
-            
-          })
-        }
-    </script>
   </body>
 
 </html>
